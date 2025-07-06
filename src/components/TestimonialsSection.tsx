@@ -22,7 +22,10 @@ const TestimonialsSection: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">בקרוב - המלצות לקוחות</h3>
               <p className="text-lg text-gray-600 mb-6">
-                אני עובד עם לקוחות מרוצים ומספק תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת הפרויקטים הראשונים.
+                אני עובד עם לקוחות מרוצים ומספק תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת הפרויקטים.
+              </p>
+              <p className="text-gray-500">
+                   ? צור קשר עכשיו!
               </p>
             </div>
             
