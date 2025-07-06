@@ -10,7 +10,7 @@ const TestimonialsSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="section-heading inline-block mx-auto">מה אומרים עליי</h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            אני עובד עם לקוחות מרוצים שמקבלים תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת .
+            אני עובד עם לקוחות מרוצים שמקבלים תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת הפרויקט.
           </p>
         </div>
 
@@ -22,10 +22,10 @@ const TestimonialsSection: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">בקרוב - המלצות לקוחות</h3>
               <p className="text-lg text-gray-600 mb-6">
-                אני עובד עם לקוחות מרוצים ומספק תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת הפרויקטים.
+                אני עובד עם לקוחות מרוצים ומספק תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת הפרויקט.
               </p>
               <p className="text-gray-500">
-                   ? צור קשר עכשיו!
+                   צור קשר עכשיו!
               </p>
             </div>
             
