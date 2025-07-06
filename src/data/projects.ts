@@ -95,7 +95,7 @@ export const projects: Project[] = [
     testimonial: {
       name: 'רונית שמיר',
       role: 'מנהלת שירות לקוחות',
-      company: 'טלקום פלוס',
+      company: 'סלקום פלוס',
       content: 'האפליקציה שינתה לחלוטין את יעילות המחלקה שלנו. זמן הטיפול בפניות התקצר ב-30% ושביעות רצון הלקוחות עלתה.',
       imageUrl: 'https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     },
