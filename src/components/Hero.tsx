@@ -1,7 +1,10 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section 
       id="ראשי" 
@@ -16,24 +19,24 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 fade-in">
-            אתרים ודפי נחיתה <span className="text-blue-600">שממירים</span>
+            {t('hero.title')} <span className="text-blue-600">{t('hero.highlight')}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 slide-up">
-            אני מתמחה בבניית אתרים ודפי נחיתה שלא רק נראים מעולה, אלא גם מביאים תוצאות עסקיות אמיתיות.
+            {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse slide-up" style={{ animationDelay: '0.2s' }}>
             <a href="#פרויקטים" className="btn-primary order-2 sm:order-1">
-              צפה בפרויקטים
+              {t('hero.viewProjects')}
             </a>
             <a href="#contact" className="btn-outline order-1 sm:order-2">
-              דבר איתי עכשיו
+              {t('hero.contactNow')}
             </a>
           </div>
         </div>
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center">
-        <p className="text-gray-600 mb-2">גלול למטה</p>
+        <p className="text-gray-600 mb-2">{t('hero.scrollDown')}</p>
         <div className="animate-bounce">
           <ChevronDown className="mx-auto" size={24} />
         </div>

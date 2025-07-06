@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
 const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +21,20 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    { key: 'nav.home', href: '#ראשי' },
+    { key: 'nav.projects', href: '#פרויקטים' },
+    { key: 'nav.services', href: '#שירותים' },
+    { key: 'nav.testimonials', href: '#המלצות' },
+    { key: 'nav.contact', href: '#contact' }
+  ];
+
   return (
     <header 
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white shadow-md py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-sm shadow-lg py-3' 
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -35,24 +46,25 @@ const Navbar: React.FC = () => {
                 isScrolled ? 'text-blue-600' : 'text-blue-500'
               }`}
             >
-              פורטפוליו
+              {t('nav.portfolio')}
             </a>
           </div>
           
-          <nav className="hidden md:flex space-x-1 rtl:space-x-reverse">
-            {['ראשי', 'פרויקטים', 'שירותים', 'המלצות', 'צור קשר'].map((item, index) => (
+          <nav className="hidden md:flex items-center space-x-1 rtl:space-x-reverse">
+            {navItems.map((item, index) => (
               <a
                 key={index}
-                href={`#${item.toLowerCase()}`}
-                className={`mx-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-blue-500 ${
-                  isScrolled ? 'text-gray-800' : 'text-gray-700'
+                href={item.href}
+                className={`mx-4 py-2 px-3 text-sm font-medium transition-all duration-300 hover:text-blue-500 hover:bg-blue-50 rounded-lg ${
+                  isScrolled ? 'text-gray-700' : 'text-gray-600'
                 }`}
               >
-                {item}
+                {t(item.key)}
               </a>
             ))}
-            <a href="#contact" className="btn-primary mr-3">
-              הצעת מחיר
+            <LanguageToggle />
+            <a href="#contact" className="btn-primary mr-4">
+              {t('nav.quote')}
             </a>
           </nav>
           
@@ -68,25 +80,28 @@ const Navbar: React.FC = () => {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg">
           <div className="px-4 py-3 space-y-4">
-            {['ראשי', 'פרויקטים', 'שירותים', 'המלצות', 'צור קשר'].map((item, index) => (
+            {navItems.map((item, index) => (
               <a
                 key={index}
-                href={`#${item.toLowerCase()}`}
+                href={item.href}
                 className="block py-2 text-gray-800 font-medium hover:text-blue-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {item}
+                {t(item.key)}
               </a>
             ))}
-            <a 
-              href="#contact" 
-              className="block w-full text-center btn-primary mt-4"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              הצעת מחיר
-            </a>
+            <div className="flex items-center justify-between pt-2 border-t">
+              <LanguageToggle />
+              <a 
+                href="#contact" 
+                className="btn-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {t('nav.quote')}
+              </a>
+            </div>
           </div>
         </div>
       )}

@@ -16,7 +16,7 @@ export const projects: Project[] = [
       'ניהול חשבונות משתמשים',
       'ממשק ניהול למנהל החנות'
     ],
-    demoUrl: 'https://example.com/cosmetics-shop',
+    demoUrl: 'https://cosmetics-demo.netlify.app',
     testimonial: {
       name: 'מירי כהן',
       role: 'בעלת',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
       'חיבור לניתוח נתונים',
       'אופטימיזציה למובייל'
     ],
-    demoUrl: 'https://example.com/course-landing',
+    demoUrl: 'https://course-landing-demo.netlify.app',
     testimonial: {
       name: 'דניאל לוי',
       role: 'יזם',
@@ -66,7 +66,7 @@ export const projects: Project[] = [
       'אופטימיזציה לקידום אורגני',
       'ממשק ניהול תוכן ידידותי'
     ],
-    demoUrl: 'https://example.com/law-firm',
+    demoUrl: 'https://law-firm-demo.netlify.app',
     testimonial: {
       name: 'עו״ד אלון ברק',
       role: 'שותף בכיר',
@@ -91,7 +91,7 @@ export const projects: Project[] = [
       'שילוב עם מערכות CRM',
       'ניהול משימות לצוות'
     ],
-    demoUrl: 'https://example.com/customer-service-app',
+    demoUrl: 'https://customer-service-demo.netlify.app',
     testimonial: {
       name: 'רונית שמיר',
       role: 'מנהלת שירות לקוחות',
@@ -116,7 +116,7 @@ export const projects: Project[] = [
       'טופס הורדה והרשמה',
       'תאימות מלאה למובייל'
     ],
-    demoUrl: 'https://example.com/app-landing',
+    demoUrl: 'https://app-landing-demo.netlify.app',
     date: '2023-09-22'
   },
   {
@@ -134,7 +134,7 @@ export const projects: Project[] = [
       'אינטגרציה עם שירותי שילוח',
       'ניהול מלאי אוטומטי'
     ],
-    demoUrl: 'https://example.com/fashion-store',
+    demoUrl: 'https://fashion-store-demo.netlify.app',
     testimonial: {
       name: 'יעל אברהם',
       role: 'מייסדת',
@@ -143,5 +143,55 @@ export const projects: Project[] = [
       imageUrl: 'https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     },
     date: '2024-02-05'
+  },
+  {
+    id: '7',
+    title: 'מערכת צ\'אט AI לעסק',
+    description: 'מערכת צ\'אט חכמה המבוססת על בינה מלאכותית לשיפור שירות הלקוחות והמכירות.',
+    summary: 'פיתחתי מערכת צ\'אט מתקדמת עם AI שמסייעת לעסקים לענות על שאלות לקוחות, לנהל פניות ולהגדיל מכירות.',
+    imageUrl: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    category: 'app',
+    technologies: ['React', 'Node.js', 'OpenAI API', 'Socket.io', 'MongoDB'],
+    features: [
+      'צ\'אט בוט חכם עם AI',
+      'ניתוח רגשות לקוחות',
+      'העברה לנציג אנושי',
+      'דשבורד ניהול שיחות',
+      'אינטגרציה עם CRM'
+    ],
+    demoUrl: 'https://ai-chat-demo.netlify.app',
+    testimonial: {
+      name: 'אבי רוזן',
+      role: 'מנהל מכירות',
+      company: 'טכנולוגיות חדשניות',
+      content: 'הצ\'אט בוט חסך לנו שעות עבודה רבות ושיפר משמעותית את שביעות רצון הלקוחות. המכירות עלו ב-25%.',
+      imageUrl: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    },
+    date: '2024-03-10'
+  },
+  {
+    id: '8',
+    title: 'מערכת יצירת לידים',
+    description: 'פלטפורמה מתקדמת לזיהוי, איסוף וניהול לידים פוטנציאליים להגדלת המכירות.',
+    summary: 'בניתי מערכת מקיפה לניהול לידים הכוללת טפסים חכמים, מעקב התנהגות משתמשים, וכלי אוטומציה למכירות.',
+    imageUrl: 'https://images.pexels.com/photos/7679725/pexels-photo-7679725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    category: 'app',
+    technologies: ['Vue.js', 'Laravel', 'MySQL', 'Redis', 'Elasticsearch'],
+    features: [
+      'טפסים חכמים ומותאמים',
+      'מעקב התנהגות משתמשים',
+      'ניקוד לידים אוטומטי',
+      'אוטומציה למכירות',
+      'דוחות ואנליטיקה מתקדמים'
+    ],
+    demoUrl: 'https://leads-system-demo.netlify.app',
+    testimonial: {
+      name: 'שרה לוי',
+      role: 'מנהלת שיווק',
+      company: 'חברת הייטק מובילה',
+      content: 'המערכת עזרה לנו להכפיל את כמות הלידים האיכותיים ולשפר את שיעור ההמרה ב-40%. פשוט מדהים!',
+      imageUrl: 'https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    },
+    date: '2024-02-28'
   }
 ];

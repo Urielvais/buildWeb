@@ -20,6 +20,39 @@ html, body {
   color: var(--text-color);
 }
 
+/* High contrast mode */
+.high-contrast {
+  --primary-color: #000000;
+  --secondary-color: #000000;
+  --accent-color: #000000;
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+.high-contrast * {
+  background-color: white !important;
+  color: black !important;
+  border-color: black !important;
+}
+
+.high-contrast .bg-blue-500,
+.high-contrast .bg-blue-600,
+.high-contrast .bg-blue-100,
+.high-contrast .bg-blue-50 {
+  background-color: white !important;
+  color: black !important;
+  border: 2px solid black !important;
+}
+
+.high-contrast .text-blue-500,
+.high-contrast .text-blue-600 {
+  color: black !important;
+}
+
+.high-contrast img {
+  filter: contrast(1.5) brightness(1.2);
+}
+
 /* Animation classes */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
@@ -74,9 +107,46 @@ html, body {
 }
 
 .btn-primary {
-  @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition-all duration-300;
+  @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
 }
 
 .btn-outline {
-  @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-2 px-6 rounded-lg transition-all duration-300;
+  @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
+}
+
+/* Improved testimonial styling */
+.testimonial-image {
+  border: 3px solid #e5e7eb;
+  transition: border-color 0.3s ease;
+}
+
+.testimonial-image:hover {
+  border-color: #3b82f6;
+}
+
+/* Better button spacing and hover effects */
+.nav-button {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.nav-button:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Accessibility improvements */
+.focus-visible:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for language switching */
+* {
+  transition: text-align 0.3s ease, direction 0.3s ease;
+}
+
+/* Better spacing for RTL/LTR transitions */
+.rtl-transition {
+  transition: margin 0.3s ease, padding 0.3s ease;
 }

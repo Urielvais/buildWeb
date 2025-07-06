@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Clock, Send } from 'lucide-react';
 import { ContactFormData } from '../types';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ContactSection: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -74,16 +76,16 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="section-heading inline-block mx-auto">צור קשר</h2>
+          <h2 className="section-heading inline-block mx-auto">{t('contact.title')}</h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            מעוניין בהצעת מחיר? יש לך שאלה? אני כאן בשבילך. מלא את הטופס ואחזור אליך בהקדם.
+            {t('contact.subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
           <div className="lg:col-span-2">
             <div className="bg-blue-50 rounded-lg p-8 h-full">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">פרטי התקשרות</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('contact.details')}</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -91,7 +93,7 @@ const ContactSection: React.FC = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-gray-800">טלפון</h4>
+                    <h4 className="text-lg font-medium text-gray-800">{t('contact.phone')}</h4>
                     <p className="text-gray-600">055-2257468</p>
                   </div>
                 </div>
@@ -101,8 +103,8 @@ const ContactSection: React.FC = () => {
                     <Mail size={20} />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-gray-800">אימייל</h4>
-                    <p className="text-gray-600">urielvaisfish@gmail.com.com</p>
+                    <h4 className="text-lg font-medium text-gray-800">{t('contact.email')}</h4>
+                    <p className="text-gray-600">urielvaisfish@gmail.com</p>
                   </div>
                 </div>
                 
@@ -111,19 +113,19 @@ const ContactSection: React.FC = () => {
                     <Clock size={20} />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-gray-800">זמני מענה</h4>
-                    <p className="text-gray-600">תוך 24 שעות בימי חול</p>
+                    <h4 className="text-lg font-medium text-gray-800">{t('contact.hours')}</h4>
+                    <p className="text-gray-600">{t('contact.hours.value')}</p>
                   </div>
                 </div>
               </div>
               
               <div className="mt-12">
-                <h4 className="text-lg font-medium text-gray-800 mb-4">למה לבחור בי?</h4>
+                <h4 className="text-lg font-medium text-gray-800 mb-4">{t('contact.why')}</h4>
                 <p className="text-gray-600 mb-4">
-                  אני לא רק בונה אתרים - אני עוזר לעסק שלך להצליח ברשת! אני מתמקד בפתרונות שמביאים תוצאות עסקיות ממשיות.
+                  {t('contact.why.text1')}
                 </p>
                 <p className="text-gray-600">
-                  כל פרויקט מקבל את תשומת הלב המלאה שלי, עם דגש על עיצוב מקצועי, חוויית משתמש מעולה, וביצועים אופטימליים.
+                  {t('contact.why.text2')}
                 </p>
               </div>
             </div>
@@ -212,6 +214,9 @@ const ContactSection: React.FC = () => {
                       >
                         <option value="website">אתר אינטרנט</option>
                         <option value="landing-page">דף נחיתה</option>
+                        <option value="ai-chat">צ'אט מבוסס AI</option>
+                        <option value="leads">יצירת לידים</option>
+                        <option value="automation">אוטומציה</option>
                         <option value="repair">תיקון או שדרוג אתר קיים</option>
                         <option value="other">אחר</option>
                       </select>
