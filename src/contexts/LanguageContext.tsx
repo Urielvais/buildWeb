@@ -17,7 +17,7 @@ const translations = {
     'nav.testimonials': 'המלצות',
     'nav.contact': 'צור קשר',
     'nav.quote': 'הצעת מחיר',
-    'nav.portfolio': 'פורטפוליו',
+    'nav.portfolio': 'LevelUp',
     
     // Hero Section
     'hero.title': 'אתרים ודפי נחיתה',
@@ -78,7 +78,7 @@ const translations = {
     'footer.hours.friday': 'שישי:',
     'footer.hours.saturday': 'שבת:',
     'footer.hours.closed': 'סגור',
-    'footer.copyright': 'פורטפוליו אתרים. כל הזכויות שמורות.',
+    'footer.copyright': 'LevelUp. כל הזכויות שמורות.',
     'footer.backToTop': 'לראש העמוד',
     
     // Accessibility
@@ -97,7 +97,7 @@ const translations = {
     'nav.testimonials': 'Testimonials',
     'nav.contact': 'Contact',
     'nav.quote': 'Get Quote',
-    'nav.portfolio': 'Portfolio',
+    'nav.portfolio': 'LevelUp',
     
     // Hero Section
     'hero.title': 'Websites & Landing Pages',
@@ -158,7 +158,7 @@ const translations = {
     'footer.hours.friday': 'Friday:',
     'footer.hours.saturday': 'Saturday:',
     'footer.hours.closed': 'Closed',
-    'footer.copyright': 'Portfolio Websites. All rights reserved.',
+    'footer.copyright': 'LevelUp. All rights reserved.',
     'footer.backToTop': 'Back to Top',
     
     // Accessibility

@@ -17,13 +17,6 @@ export const projects: Project[] = [
       'ממשק ניהול למנהל החנות'
     ],
     demoUrl: 'https://cosmetics-demo.netlify.app',
-    testimonial: {
-      name: 'מירי כהן',
-      role: 'בעלת',
-      company: 'הקוסמטיקה של מירי',
-      content: 'האתר החדש הגדיל את המכירות שלנו ב-45% תוך חודשיים בלבד. התהליך היה חלק ומקצועי מאוד.',
-      imageUrl: 'https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2023-08-15'
   },
   {
@@ -42,13 +35,6 @@ export const projects: Project[] = [
       'אופטימיזציה למובייל'
     ],
     demoUrl: 'https://course-landing-demo.netlify.app',
-    testimonial: {
-      name: 'דניאל לוי',
-      role: 'יזם',
-      company: 'אקדמיית המומחים',
-      content: 'דף הנחיתה סייע לנו להשיג יותר מ-300 הרשמות בשבוע הראשון לאחר ההשקה. התוצאות מדהימות!',
-      imageUrl: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2023-11-03'
   },
   {
@@ -67,13 +53,6 @@ export const projects: Project[] = [
       'ממשק ניהול תוכן ידידותי'
     ],
     demoUrl: 'https://law-firm-demo.netlify.app',
-    testimonial: {
-      name: 'עו״ד אלון ברק',
-      role: 'שותף בכיר',
-      company: 'ברק ושות׳ עורכי דין',
-      content: 'האתר החדש משקף בדיוק את הרמה המקצועית שאנחנו רוצים להציג. קיבלנו הרבה מאוד פניות חדשות דרכו.',
-      imageUrl: 'https://images.pexels.com/photos/5668859/pexels-photo-5668859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2024-01-20'
   },
   {
@@ -92,13 +71,6 @@ export const projects: Project[] = [
       'ניהול משימות לצוות'
     ],
     demoUrl: 'https://customer-service-demo.netlify.app',
-    testimonial: {
-      name: 'רונית שמיר',
-      role: 'מנהלת שירות לקוחות',
-      company: 'סלקום פלוס',
-      content: 'האפליקציה שינתה לחלוטין את יעילות המחלקה שלנו. זמן הטיפול בפניות התקצר ב-30% ושביעות רצון הלקוחות עלתה.',
-      imageUrl: 'https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2023-05-10'
   },
   {
@@ -135,13 +107,6 @@ export const projects: Project[] = [
       'ניהול מלאי אוטומטי'
     ],
     demoUrl: 'https://fashion-store-demo.netlify.app',
-    testimonial: {
-      name: 'יעל אברהם',
-      role: 'מייסדת',
-      company: 'YAEL Fashion',
-      content: 'החנות האונליין החדשה פתחה עבורנו שוק לקוחות חדש לגמרי. יותר מ-60% מהמכירות כעת מגיעות מהאתר.',
-      imageUrl: 'https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2024-02-05'
   },
   {
@@ -160,13 +125,6 @@ export const projects: Project[] = [
       'אינטגרציה עם CRM'
     ],
     demoUrl: 'https://ai-chat-demo.netlify.app',
-    testimonial: {
-      name: 'אבי רוזן',
-      role: 'מנהל מכירות',
-      company: 'טכנולוגיות חדשניות',
-      content: 'הצ\'אט בוט חסך לנו שעות עבודה רבות ושיפר משמעותית את שביעות רצון הלקוחות. המכירות עלו ב-25%.',
-      imageUrl: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2024-03-10'
   },
   {
@@ -185,13 +143,6 @@ export const projects: Project[] = [
       'דוחות ואנליטיקה מתקדמים'
     ],
     demoUrl: 'https://leads-system-demo.netlify.app',
-    testimonial: {
-      name: 'שרה לוי',
-      role: 'מנהלת שיווק',
-      company: 'חברת הייטק מובילה',
-      content: 'המערכת עזרה לנו להכפיל את כמות הלידים האיכותיים ולשפר את שיעור ההמרה ב-40%. פשוט מדהים!',
-      imageUrl: 'https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
     date: '2024-02-28'
   }
 ];

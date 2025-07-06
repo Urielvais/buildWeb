@@ -150,3 +150,20 @@ html, body {
 .rtl-transition {
   transition: margin 0.3s ease, padding 0.3s ease;
 }
+
+/* Fix for high contrast mode in accessibility menu */
+.high-contrast .bg-white {
+  background-color: white !important;
+  border: 1px solid black !important;
+}
+
+.high-contrast .text-gray-700,
+.high-contrast .text-gray-600,
+.high-contrast .text-gray-800 {
+  color: black !important;
+}
+
+.high-contrast .hover\:bg-gray-100:hover {
+  background-color: #f0f0f0 !important;
+  color: black !important;
+}

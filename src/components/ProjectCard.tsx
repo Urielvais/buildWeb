@@ -74,7 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 rel="noopener noreferrer"
                 className="flex items-center text-gray-600 hover:text-blue-500 transition-colors text-sm"
               >
-                <span className="mr-2">צפה באתר</span>
+                <span className="mr-2">דמו</span>
                 <ExternalLink size={16} />
               </a>
             )}

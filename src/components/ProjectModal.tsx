@@ -99,30 +99,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </div>
           </div>
 
-          {project.testimonial && (
-            <div className="bg-gray-50 rounded-lg p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">המלצת לקוח</h3>
-              <div className="flex">
-                {project.testimonial.imageUrl && (
-                  <img
-                    src={project.testimonial.imageUrl}
-                    alt={project.testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover ml-4"
-                  />
-                )}
-                <div>
-                  <p className="text-gray-700 mb-3 italic">"{project.testimonial.content}"</p>
-                  <div>
-                    <p className="font-medium text-gray-800">{project.testimonial.name}</p>
-                    <p className="text-sm text-gray-600">
-                      {project.testimonial.role}, {project.testimonial.company}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
             <a href="#contact" className="btn-primary text-center" onClick={onClose}>
               רוצה פרויקט דומה? צור קשר
@@ -135,7 +111,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 rel="noopener noreferrer"
                 className="btn-outline text-center flex items-center justify-center"
               >
-                <span className="ml-2">צפה בפרויקט</span>
+                <span className="ml-2">צפה בדמו</span>
                 <ExternalLink size={16} />
               </a>
             )}
