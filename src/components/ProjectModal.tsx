@@ -111,8 +111,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 rel="noopener noreferrer"
                 className="btn-outline text-center flex items-center justify-center"
               >
-                <span className="ml-2">צפה בדמו</span>
-                <ExternalLink size={16} />
               </a>
             )}
           </div>
