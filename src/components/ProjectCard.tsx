@@ -66,17 +66,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             >
               למידע נוסף
             </button>
-            
-            {project.demoUrl && (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center text-gray-600 hover:text-blue-500 transition-colors text-sm"
-              >
-                <ExternalLink size={16} />
-              </a>
-            )}
           </div>
         </div>
       </div>
