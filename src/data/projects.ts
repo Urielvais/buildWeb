@@ -16,8 +16,7 @@ export const projects: Project[] = [
       'ניהול חשבונות משתמשים',
       'ממשק ניהול למנהל החנות'
     ],
-    demoUrl: 'https://cosmetics-demo.netlify.app',
-    date: '2023-08-15'
+    date: '2025-05-15'
   },
   {
     id: '2',
@@ -34,8 +33,7 @@ export const projects: Project[] = [
       'חיבור לניתוח נתונים',
       'אופטימיזציה למובייל'
     ],
-    demoUrl: 'https://course-landing-demo.netlify.app',
-    date: '2023-11-03'
+    date: '2025-1-03'
   },
   {
     id: '3',
@@ -52,8 +50,7 @@ export const projects: Project[] = [
       'אופטימיזציה לקידום אורגני',
       'ממשק ניהול תוכן ידידותי'
     ],
-    demoUrl: 'https://law-firm-demo.netlify.app',
-    date: '2024-01-20'
+    date: '2025-06-20'
   },
   {
     id: '4',
@@ -70,8 +67,7 @@ export const projects: Project[] = [
       'שילוב עם מערכות CRM',
       'ניהול משימות לצוות'
     ],
-    demoUrl: 'https://customer-service-demo.netlify.app',
-    date: '2023-05-10'
+    date: '2025-05-10'
   },
   {
     id: '5',
@@ -88,8 +84,7 @@ export const projects: Project[] = [
       'טופס הורדה והרשמה',
       'תאימות מלאה למובייל'
     ],
-    demoUrl: 'https://app-landing-demo.netlify.app',
-    date: '2023-09-22'
+    date: '2025-04-22'
   },
   {
     id: '6',
@@ -106,8 +101,7 @@ export const projects: Project[] = [
       'אינטגרציה עם שירותי שילוח',
       'ניהול מלאי אוטומטי'
     ],
-    demoUrl: 'https://fashion-store-demo.netlify.app',
-    date: '2024-02-05'
+    date: '2025-02-05'
   },
   {
     id: '7',
@@ -124,8 +118,7 @@ export const projects: Project[] = [
       'דשבורד ניהול שיחות',
       'אינטגרציה עם CRM'
     ],
-    demoUrl: 'https://ai-chat-demo.netlify.app',
-    date: '2024-03-10'
+    date: '2025-03-10'
   },
   {
     id: '8',
@@ -142,7 +135,6 @@ export const projects: Project[] = [
       'אוטומציה למכירות',
       'דוחות ואנליטיקה מתקדמים'
     ],
-    demoUrl: 'https://leads-system-demo.netlify.app',
-    date: '2024-02-28'
+    date: '2025-02-28'
   }
 ];
