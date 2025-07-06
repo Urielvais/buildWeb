@@ -24,9 +24,6 @@ const TestimonialsSection: React.FC = () => {
               <p className="text-lg text-gray-600 mb-6">
                 אני עובד עם לקוחות מרוצים ומספק תוצאות מעולות. ההמלצות יתווספו כאן לאחר השלמת הפרויקטים הראשונים.
               </p>
-              <p className="text-gray-500">
-                מעוניין להיות הלקוח הראשון? צור קשר עכשיו!
-              </p>
             </div>
             
             <a href="#contact" className="btn-primary">
