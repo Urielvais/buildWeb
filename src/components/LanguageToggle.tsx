@@ -21,7 +21,7 @@ const LanguageToggle: React.FC = () => {
       aria-label={`Switch to ${language === 'he' ? 'English' : 'Hebrew'}`}
     >
       <Globe size={18} />
-      <span>{language === 'he' ? 'EN' : 'עב'}</span>
+      <span>{language === 'he' ? 'english' : 'עברית'}</span>
     </button>
   );
 };
