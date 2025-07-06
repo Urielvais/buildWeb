@@ -21,7 +21,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'אתרים ודפי נחיתה',
-    'hero.highlight': 'שממירים',
+    'hero.highlight': 'שממריאים',
     'hero.subtitle': 'אני מתמחה בבניית אתרים ודפי נחיתה שלא רק נראים מעולה, אלא גם מביאים תוצאות עסקיות אמיתיות.',
     'hero.viewProjects': 'צפה בפרויקטים',
     'hero.contactNow': 'דבר איתי עכשיו',
