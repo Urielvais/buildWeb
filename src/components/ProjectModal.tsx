@@ -103,16 +103,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             <a href="#contact" className="btn-primary text-center" onClick={onClose}>
               רוצה פרויקט דומה? צור קשר
             </a>
-            
-            {project.demoUrl && (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline text-center flex items-center justify-center"
-              >
-              </a>
-            )}
           </div>
         </div>
       </div>
