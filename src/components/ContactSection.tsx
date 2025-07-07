@@ -78,30 +78,61 @@ const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Create email content in Hebrew for consistency
-      const emailContent = `פנייה חדשה מהאתר - LevelUp
+      // Create detailed email content in Hebrew for consistency
+      const currentDate = new Date();
+      const emailContent = `פנייה חדשה מאתר LevelUp Your Business
 
-פרטי הלקוח:
-שם: ${formData.name}
-אימייל: ${formData.email}
-טלפון: ${formData.phone || 'לא צוין'}
+═══════════════════════════════════════
+📋 פרטי הלקוח
+═══════════════════════════════════════
+👤 שם מלא: ${formData.name}
+📧 כתובת אימייל: ${formData.email}
+📱 מספר טלפון: ${formData.phone || 'לא צוין'}
 
-פרטי הפרויקט:
-סוג שירות: ${getServiceTypeLabel(formData.serviceType)}
-דחיפות: ${getUrgencyLabel(formData.urgency)}
+═══════════════════════════════════════
+🎯 פרטי הפרויקט
+═══════════════════════════════════════
+🔧 סוג השירות: ${getServiceTypeLabel(formData.serviceType)}
+⏰ רמת דחיפות: ${getUrgencyLabel(formData.urgency)}
 
-הודעה:
+═══════════════════════════════════════
+💬 הודעת הלקוח
+═══════════════════════════════════════
 ${formData.message}
 
----
-נשלח מאתר LevelUp
-תאריך: ${new Date().toLocaleDateString('he-IL')}
-שעה: ${new Date().toLocaleTimeString('he-IL')}`;
+═══════════════════════════════════════
+📊 פרטים טכניים
+═══════════════════════════════════════
+🌐 מקור: אתר LevelUp Your Business
+📅 תאריך שליחה: ${currentDate.toLocaleDateString('he-IL', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})}
+🕐 שעת שליחה: ${currentDate.toLocaleTimeString('he-IL')}
+🌍 שפת האתר: ${language === 'he' ? 'עברית' : 'אנגלית'}
 
-      // Send email using mailto - this will open the user's email client
-      const subject = encodeURIComponent(`פנייה חדשה מהאתר - ${formData.name}`);
-      const body = encodeURIComponent(emailContent);
-      const mailtoLink = `mailto:urielvaisfish@gmail.com?subject=${subject}&body=${body}`;
+═══════════════════════════════════════
+📝 הערות
+═══════════════════════════════════════
+• יש לחזור ללקוח תוך 24 שעות
+• לשמור את הפרטים במערכת CRM
+• לשלוח הצעת מחיר מפורטת
+
+---
+נשלח אוטומטית מאתר LevelUp Your Business
+urielvaisfish@gmail.com`;
+
+      // Create email subject
+      const subject = `🚀 פנייה חדשה מהאתר - ${formData.name} | ${getServiceTypeLabel(formData.serviceType)}`;
+      
+      // Encode for mailto
+      const encodedSubject = encodeURIComponent(subject);
+      const encodedBody = encodeURIComponent(emailContent);
+      
+      // Create mailto link
+      const mailtoLink = `mailto:urielvaisfish@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
       
       // Open email client
       window.location.href = mailtoLink;

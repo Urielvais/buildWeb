@@ -42,18 +42,23 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a 
               href="/" 
-              className="flex flex-col items-start"
+              className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <span className={`text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? 'text-blue-600' : 'text-blue-500'
-              }`}>
-                {t('nav.portfolio')}
-              </span>
-              <span className={`text-sm font-medium italic transition-colors duration-300 ${
-                isScrolled ? 'text-gray-600' : 'text-gray-500'
-              } bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent`}>
-                {t('nav.slogan')}
-              </span>
+              <img 
+                src="/logo.svg" 
+                alt="LevelUp Logo" 
+                className="w-10 h-10"
+              />
+              <div className="logo-container">
+                <span className={`logo-main transition-colors duration-300 ${
+                  isScrolled ? 'text-blue-600' : 'text-blue-500'
+                }`}>
+                  {t('nav.portfolio')}
+                </span>
+                <span className="logo-slogan">
+                  {t('nav.slogan')}
+                </span>
+              </div>
             </a>
           </div>
           

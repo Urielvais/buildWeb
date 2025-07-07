@@ -8,75 +8,75 @@ const TestimonialsSection: React.FC = () => {
 
   const testimonials = [
     {
-      name: language === 'he' ? 'דני מרקוביץ' : 'Danny Markowitz',
+      name: language === 'he' ? 'דני' : 'Danny',
       role: language === 'he' ? 'מנהל חנות אונליין' : 'Online Store Manager',
       company: 'Fashion Store',
       content: language === 'he' 
-        ? 'העבודה הייתה מקצועית ומדויקת. האתר עובד מעולה והמכירות עלו ב-40% מאז השקתו. השירות היה מעולה ותמיכה מלאה לאורך כל הדרך.'
-        : 'The work was professional and precise. The website works excellently and sales increased by 40% since launch. The service was excellent with full support throughout.',
+        ? 'העבודה הייתה מקצועית ומדויקת. האתר עובד מעולה והמכירות עלו ב-40% מאז השקתו. השירות היה מעולה ותמיכה מלאה לאורך כל הדרך. אני ממליץ בחום על השירותים המקצועיים.'
+        : 'The work was professional and precise. The website works excellently and sales increased by 40% since launch. The service was excellent with full support throughout. I highly recommend the professional services.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'רחל כהן' : 'Rachel Cohen',
+      name: language === 'he' ? 'רחל' : 'Rachel',
       role: language === 'he' ? 'מנכ"לית סטארטאפ' : 'Startup CEO',
       company: 'Tech Innovation',
       content: language === 'he'
-        ? 'דף הנחיתה שבנה עבורנו הביא תוצאות מעולות. שיעור ההמרה עלה משמעותית ואנחנו מאוד מרוצים מהתוצאה הסופית.'
-        : 'The landing page built for us brought excellent results. Conversion rate increased significantly and we are very satisfied with the final result.',
+        ? 'דף הנחיתה שבנה עבורנו הביא תוצאות מעולות. שיעור ההמרה עלה משמעותית ואנחנו מאוד מרוצים מהתוצאה הסופית. הפתרון היה מותאם בדיוק לצרכים שלנו והתמיכה הייתה זמינה תמיד.'
+        : 'The landing page built for us brought excellent results. Conversion rate increased significantly and we are very satisfied with the final result. The solution was perfectly tailored to our needs and support was always available.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'אבי לוי' : 'Avi Levy',
+      name: language === 'he' ? 'אבי' : 'Avi',
       role: language === 'he' ? 'בעל עסק' : 'Business Owner',
       company: 'Local Business',
       content: language === 'he'
-        ? 'שירות מעולה ותמיכה מלאה. האתר נראה מקצועי ומביא לקוחות חדשים כל הזמן. ההשקעה החזירה את עצמה תוך חודשיים.'
-        : 'Excellent service and full support. The website looks professional and brings new customers all the time. The investment paid for itself within two months.',
+        ? 'שירות מעולה ותמיכה מלאה. האתר נראה מקצועי ומביא לקוחות חדשים כל הזמן. ההשקעה החזירה את עצמה תוך חודשיים. הייתי מרוצה מכל שלב בתהליך והתוצאה עלתה על הציפיות.'
+        : 'Excellent service and full support. The website looks professional and brings new customers all the time. The investment paid for itself within two months. I was satisfied with every step of the process and the result exceeded expectations.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'מיכל שמואלי' : 'Michal Shmueli',
+      name: language === 'he' ? 'מיכל' : 'Michal',
       role: language === 'he' ? 'מנהלת שיווק' : 'Marketing Manager',
       company: 'Digital Agency',
       content: language === 'he'
-        ? 'הצ\'אט AI שפיתח עבורנו חסך לנו שעות עבודה ושיפר את שירות הלקוחות באופן דרמטי. הלקוחות מקבלים מענה מיידי 24/7.'
-        : 'The AI chat developed for us saved us hours of work and dramatically improved customer service. Customers receive immediate response 24/7.',
+        ? 'הצ\'אט AI שפיתח עבורנו חסך לנו שעות עבודה ושיפר את שירות הלקוחות באופן דרמטי. הלקוחות מקבלים מענה מיידי 24/7. המערכת פשוטה לתפעול והתוצאות מדברות בעד עצמן.'
+        : 'The AI chat developed for us saved us hours of work and dramatically improved customer service. Customers receive immediate response 24/7. The system is simple to operate and the results speak for themselves.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'לירון גולדברג' : 'Liron Goldberg',
+      name: language === 'he' ? 'לירון' : 'Liron',
       role: language === 'he' ? 'יועץ עסקי' : 'Business Consultant',
       company: 'Consulting Firm',
       content: language === 'he'
-        ? 'מערכת יצירת הלידים שבנה הגדילה את מספר הפניות שלנו פי 3. תוצאות מדהימות! הפתרון מותאם בדיוק לצרכים שלנו.'
-        : 'The lead generation system built increased our inquiries by 3x. Amazing results! The solution is perfectly tailored to our needs.',
+        ? 'מערכת יצירת הלידים שבנה הגדילה את מספר הפניות שלנו פי 3. תוצאות מדהימות! הפתרון מותאם בדיוק לצרכים שלנו והתמיכה הטכנית מעולה. השירות היה מקצועי ואמין לאורך כל הדרך.'
+        : 'The lead generation system built increased our inquiries by 3x. Amazing results! The solution is perfectly tailored to our needs and technical support is excellent. The service was professional and reliable throughout.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'חיים רוזנברג' : 'Chaim Rosenberg',
+      name: language === 'he' ? 'חיים' : 'Chaim',
       role: language === 'he' ? 'מנהל מכירות' : 'Sales Manager',
       company: 'B2B Solutions',
       content: language === 'he'
-        ? 'האוטומציה שיצר עבורנו חסכה לנו זמן רב וגרמה לתהליכים להיות הרבה יותר יעילים. עכשיו אנחנו יכולים להתמקד במה שחשוב באמת.'
-        : 'The automation created for us saved us a lot of time and made processes much more efficient. Now we can focus on what really matters.',
+        ? 'האוטומציה שיצר עבורנו חסכה לנו זמן רב וגרמה לתהליכים להיות הרבה יותר יעילים. עכשיו אנחנו יכולים להתמקד במה שחשוב באמת. המערכת פועלת בצורה מושלמת ללא תקלות.'
+        : 'The automation created for us saved us a lot of time and made processes much more efficient. Now we can focus on what really matters. The system works perfectly without any issues.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'שרה אברהם' : 'Sarah Abraham',
+      name: language === 'he' ? 'שרה' : 'Sarah',
       role: language === 'he' ? 'מנהלת פרויקטים' : 'Project Manager',
       company: 'Construction Company',
       content: language === 'he'
-        ? 'האתר החדש שלנו מקצועי ומרשים. הלקוחות מתרשמים מהמראה והפונקציונליות. קיבלנו הרבה פניות חדשות מאז השקתו.'
-        : 'Our new website is professional and impressive. Clients are impressed by the look and functionality. We received many new inquiries since launch.',
+        ? 'האתר החדש שלנו מקצועי ומרשים. הלקוחות מתרשמים מהמראה והפונקציונליות. קיבלנו הרבה פניות חדשות מאז השקתו. העבודה הייתה מקצועית והתוצאה עלתה על הציפיות שלנו.'
+        : 'Our new website is professional and impressive. Clients are impressed by the look and functionality. We received many new inquiries since launch. The work was professional and the result exceeded our expectations.',
       rating: 5
     },
     {
-      name: language === 'he' ? 'יוסי פרידמן' : 'Yossi Friedman',
+      name: language === 'he' ? 'יוסי' : 'Yossi',
       role: language === 'he' ? 'מנהל רשת חנויות' : 'Chain Store Manager',
       company: 'Retail Chain',
       content: language === 'he'
-        ? 'החנות האונליין שבנה עבורנו פועלת בצורה מושלמת. המערכת קלה לתפעול והלקוחות אוהבים את חוויית הקנייה החדשה.'
-        : 'The online store built for us works perfectly. The system is easy to operate and customers love the new shopping experience.',
+        ? 'החנות האונליין שבנה עבורנו פועלת בצורה מושלמת. המערכת קלה לתפעול והלקוחות אוהבים את חוויית הקנייה החדשה. המכירות האונליין עלו באופן משמעותי והכל עובד חלק.'
+        : 'The online store built for us works perfectly. The system is easy to operate and customers love the new shopping experience. Online sales increased significantly and everything works smoothly.',
       rating: 5
     }
   ];
@@ -111,7 +111,7 @@ const TestimonialsSection: React.FC = () => {
 
         <div className="max-w-5xl mx-auto relative">
           {/* Main testimonial display */}
-          <div className="bg-white rounded-xl shadow-2xl p-8 md:p-12 text-center min-h-[350px] flex flex-col justify-center border border-gray-100">
+          <div className="testimonial-card rounded-xl shadow-2xl p-8 md:p-12 text-center min-h-[350px] flex flex-col justify-center">
             <div className="flex items-center justify-center mb-8">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                 <Star key={i} size={28} className="text-yellow-400 fill-current mx-1" />
@@ -157,9 +157,9 @@ const TestimonialsSection: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-4 rounded-full transition-all duration-300 ${
+                className={`h-4 rounded-full transition-all duration-300 dot-indicator ${
                   index === currentIndex 
-                    ? 'bg-blue-500 w-12 shadow-lg' 
+                    ? 'bg-blue-500 w-12 shadow-lg active' 
                     : 'bg-gray-300 hover:bg-gray-400 w-4'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
