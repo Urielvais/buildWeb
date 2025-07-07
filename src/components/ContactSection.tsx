@@ -124,36 +124,53 @@ ${formData.message}
 נשלח אוטומטית מאתר LevelUp Your Business
 urielvaisfish@gmail.com`;
 
-      // Create email subject
-      const subject = `🚀 פנייה חדשה מהאתר - ${formData.name} | ${getServiceTypeLabel(formData.serviceType)}`;
-      
-      // Encode for mailto
-      const encodedSubject = encodeURIComponent(subject);
-      const encodedBody = encodeURIComponent(emailContent);
-      
-      // Create mailto link
-      const mailtoLink = `mailto:urielvaisfish@gmail.com?subject=${encodedSubject}&body=${encodedBody}`;
-      
-      // Open email client
-      window.location.href = mailtoLink;
-      
-      // Show success message
-      setSubmitSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: 'website',
-        urgency: 'standard',
-        message: '',
+      // Prepare form data for Formspree
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone || 'לא צוין');
+      formDataToSend.append('serviceType', getServiceTypeLabel(formData.serviceType));
+      formDataToSend.append('urgency', getUrgencyLabel(formData.urgency));
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('_subject', `🚀 פנייה חדשה מהאתר - ${formData.name} | ${getServiceTypeLabel(formData.serviceType)}`);
+      formDataToSend.append('_template', 'table');
+      formDataToSend.append('_replyto', formData.email);
+      formDataToSend.append('detailedMessage', emailContent);
+
+      // Submit to Formspree
+      const response = await fetch('https://formspree.io/f/xpwregzy', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false);
-      }, 5000);
+
+      if (response.ok) {
+        // Show success message
+        setSubmitSuccess(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          serviceType: 'website',
+          urgency: 'standard',
+          message: '',
+        });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 5000);
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
       console.error('Error sending email:', error);
+      alert(language === 'he' 
+        ? 'שגיאה בשליחת ההודעה. אנא נסה שוב או צור קשר ישירות.' 
+        : 'Error sending message. Please try again or contact directly.'
+      );
     } finally {
       setIsSubmitting(false);
     }
