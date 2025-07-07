@@ -4,7 +4,7 @@ import { ContactFormData } from '../types';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const ContactSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -21,13 +21,17 @@ const ContactSection: React.FC = () => {
   const validate = (): boolean => {
     const newErrors: Partial<ContactFormData> = {};
     
-    if (!formData.name.trim()) newErrors.name = 'שם הוא שדה חובה';
-    if (!formData.email.trim()) {
-      newErrors.email = 'אימייל הוא שדה חובה';
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = 'כתובת אימייל לא תקינה';
+    if (!formData.name.trim()) {
+      newErrors.name = language === 'he' ? 'שם הוא שדה חובה' : 'Name is required';
     }
-    if (!formData.message.trim()) newErrors.message = 'הודעה היא שדה חובה';
+    if (!formData.email.trim()) {
+      newErrors.email = language === 'he' ? 'אימייל הוא שדה חובה' : 'Email is required';
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = language === 'he' ? 'כתובת אימייל לא תקינה' : 'Invalid email address';
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = language === 'he' ? 'הודעה היא שדה חובה' : 'Message is required';
+    }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -45,16 +49,31 @@ const ContactSection: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validate()) return;
     
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Create email content
+      const emailContent = `
+שם: ${formData.name}
+אימייל: ${formData.email}
+טלפון: ${formData.phone}
+סוג שירות: ${formData.serviceType}
+דחיפות: ${formData.urgency}
+הודעה: ${formData.message}
+      `;
+
+      // Send email using mailto (this will open the user's email client)
+      const subject = encodeURIComponent('פנייה חדשה מהאתר - ' + formData.name);
+      const body = encodeURIComponent(emailContent);
+      const mailtoLink = `mailto:urielvaisfish@gmail.com?subject=${subject}&body=${body}`;
+      
+      window.location.href = mailtoLink;
+      
       setSubmitSuccess(true);
       setFormData({
         name: '',
@@ -69,7 +88,11 @@ const ContactSection: React.FC = () => {
       setTimeout(() => {
         setSubmitSuccess(false);
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -138,15 +161,19 @@ const ContactSection: React.FC = () => {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-500 mb-6">
                     <Send size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">ההודעה נשלחה בהצלחה!</h3>
-                  <p className="text-gray-600">אחזור אליך בהקדם האפשרי.</p>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    {language === 'he' ? 'ההודעה נשלחה בהצלחה!' : 'Message sent successfully!'}
+                  </h3>
+                  <p className="text-gray-600">
+                    {language === 'he' ? 'אחזור אליך בהקדם האפשרי.' : 'I\'ll get back to you as soon as possible.'}
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-                        שם מלא <span className="text-red-500">*</span>
+                        {language === 'he' ? 'שם מלא' : 'Full Name'} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -157,7 +184,7 @@ const ContactSection: React.FC = () => {
                         className={`w-full px-4 py-3 rounded-lg border ${
                           errors.name ? 'border-red-500' : 'border-gray-300'
                         } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                        placeholder="הכנס את שמך המלא"
+                        placeholder={language === 'he' ? 'הכנס את שמך המלא' : 'Enter your full name'}
                       />
                       {errors.name && (
                         <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -166,7 +193,7 @@ const ContactSection: React.FC = () => {
                     
                     <div>
                       <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-                        אימייל <span className="text-red-500">*</span>
+                        {language === 'he' ? 'אימייל' : 'Email'} <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="email"
@@ -177,7 +204,7 @@ const ContactSection: React.FC = () => {
                         className={`w-full px-4 py-3 rounded-lg border ${
                           errors.email ? 'border-red-500' : 'border-gray-300'
                         } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                        placeholder="אימייל ליצירת קשר"
+                        placeholder={language === 'he' ? 'אימייל ליצירת קשר' : 'Contact email'}
                       />
                       {errors.email && (
                         <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -188,7 +215,7 @@ const ContactSection: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="phone" className="block text-gray-700 font-medium mb-2">
-                        טלפון
+                        {language === 'he' ? 'טלפון' : 'Phone'}
                       </label>
                       <input
                         type="tel"
@@ -197,13 +224,13 @@ const ContactSection: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="מספר טלפון"
+                        placeholder={language === 'he' ? 'מספר טלפון' : 'Phone number'}
                       />
                     </div>
                     
                     <div>
                       <label htmlFor="serviceType" className="block text-gray-700 font-medium mb-2">
-                        סוג השירות
+                        {language === 'he' ? 'סוג השירות' : 'Service Type'}
                       </label>
                       <select
                         id="serviceType"
@@ -212,20 +239,20 @@ const ContactSection: React.FC = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       >
-                        <option value="website">אתר אינטרנט</option>
-                        <option value="landing-page">דף נחיתה</option>
-                        <option value="ai-chat">צ'אט מבוסס AI</option>
-                        <option value="leads">יצירת לידים</option>
-                        <option value="automation">אוטומציה</option>
-                        <option value="repair">תיקון או שדרוג אתר קיים</option>
-                        <option value="other">אחר</option>
+                        <option value="website">{language === 'he' ? 'אתר אינטרנט' : 'Website'}</option>
+                        <option value="landing-page">{language === 'he' ? 'דף נחיתה' : 'Landing Page'}</option>
+                        <option value="ai-chat">{language === 'he' ? 'צ\'אט מבוסס AI' : 'AI Chat'}</option>
+                        <option value="leads">{language === 'he' ? 'יצירת לידים' : 'Lead Generation'}</option>
+                        <option value="automation">{language === 'he' ? 'אוטומציה' : 'Automation'}</option>
+                        <option value="repair">{language === 'he' ? 'תיקון או שדרוג אתר קיים' : 'Repair or upgrade existing site'}</option>
+                        <option value="other">{language === 'he' ? 'אחר' : 'Other'}</option>
                       </select>
                     </div>
                   </div>
                   
                   <div className="mb-6">
                     <label className="block text-gray-700 font-medium mb-2">
-                      דחיפות הפרויקט
+                      {language === 'he' ? 'דחיפות הפרויקט' : 'Project Urgency'}
                     </label>
                     <div className="flex space-x-4 rtl:space-x-reverse">
                       <label className="inline-flex items-center">
@@ -237,7 +264,9 @@ const ContactSection: React.FC = () => {
                           onChange={handleChange}
                           className="form-radio h-5 w-5 text-blue-500"
                         />
-                        <span className="mr-2">דחוף (1-2 שבועות)</span>
+                        <span className="mr-2">
+                          {language === 'he' ? 'דחוף (1-2 שבועות)' : 'Urgent (1-2 weeks)'}
+                        </span>
                       </label>
                       <label className="inline-flex items-center">
                         <input
@@ -248,14 +277,16 @@ const ContactSection: React.FC = () => {
                           onChange={handleChange}
                           className="form-radio h-5 w-5 text-blue-500"
                         />
-                        <span className="mr-2">רגיל (3-4 שבועות)</span>
+                        <span className="mr-2">
+                          {language === 'he' ? 'רגיל (3-4 שבועות)' : 'Standard (3-4 weeks)'}
+                        </span>
                       </label>
                     </div>
                   </div>
                   
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-                      פרטי הפרויקט <span className="text-red-500">*</span>
+                      {language === 'he' ? 'פרטי הפרויקט' : 'Project Details'} <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -266,7 +297,7 @@ const ContactSection: React.FC = () => {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         errors.message ? 'border-red-500' : 'border-gray-300'
                       } focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                      placeholder="תאר את הפרויקט שלך ואת הצרכים שלך..."
+                      placeholder={language === 'he' ? 'תאר את הפרויקט שלך ואת הצרכים שלך...' : 'Describe your project and your needs...'}
                     ></textarea>
                     {errors.message && (
                       <p className="text-red-500 text-sm mt-1">{errors.message}</p>
@@ -296,12 +327,12 @@ const ContactSection: React.FC = () => {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             ></path>
                           </svg>
-                          שולח...
+                          {language === 'he' ? 'שולח...' : 'Sending...'}
                         </span>
                       ) : (
                         <span className="flex items-center justify-center">
                           <Send size={18} className="ml-2" />
-                          שלח פנייה
+                          {language === 'he' ? 'שלח פנייה' : 'Send Message'}
                         </span>
                       )}
                     </button>
