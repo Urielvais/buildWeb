@@ -18,7 +18,7 @@ const translations = {
     'nav.contact': 'צור קשר',
     'nav.quote': 'הצעת מחיר',
     'nav.portfolio': 'LevelUp',
-    'nav.slogan': 'LevelUp Your Business',
+    'nav.slogan': 'Your Business',
     
     // Hero Section
     'hero.title': 'אתרים ודפי נחיתה',
@@ -62,6 +62,8 @@ const translations = {
     // Testimonials
     'testimonials.title': 'מה אומרים עליי',
     'testimonials.subtitle': 'לקוחות מרוצים שקיבלו תוצאות מעולות',
+    'testimonials.prev': 'הקודם',
+    'testimonials.next': 'הבא',
     
     // Contact
     'contact.title': 'צור קשר',
@@ -103,7 +105,7 @@ const translations = {
     'nav.contact': 'Contact',
     'nav.quote': 'Get Quote',
     'nav.portfolio': 'LevelUp',
-    'nav.slogan': 'LevelUp Your Business',
+    'nav.slogan': 'Your Business',
     
     // Hero Section
     'hero.title': 'Websites & Landing Pages',
@@ -147,6 +149,8 @@ const translations = {
     // Testimonials
     'testimonials.title': 'What Clients Say',
     'testimonials.subtitle': 'Satisfied clients who received excellent results',
+    'testimonials.prev': 'Previous',
+    'testimonials.next': 'Next',
     
     // Contact
     'contact.title': 'Contact Me',

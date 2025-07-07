@@ -49,6 +49,27 @@ const ContactSection: React.FC = () => {
     }
   };
 
+  const getServiceTypeLabel = (serviceType: string) => {
+    const labels: Record<string, { he: string; en: string }> = {
+      'website': { he: 'אתר אינטרנט', en: 'Website' },
+      'landing-page': { he: 'דף נחיתה', en: 'Landing Page' },
+      'ai-chat': { he: 'צ\'אט מבוסס AI', en: 'AI Chat' },
+      'leads': { he: 'יצירת לידים', en: 'Lead Generation' },
+      'automation': { he: 'אוטומציה', en: 'Automation' },
+      'repair': { he: 'תיקון או שדרוג אתר קיים', en: 'Repair or upgrade existing site' },
+      'other': { he: 'אחר', en: 'Other' }
+    };
+    return labels[serviceType]?.[language] || serviceType;
+  };
+
+  const getUrgencyLabel = (urgency: string) => {
+    const labels: Record<string, { he: string; en: string }> = {
+      'urgent': { he: 'דחוף (1-2 שבועות)', en: 'Urgent (1-2 weeks)' },
+      'standard': { he: 'רגיל (3-4 שבועות)', en: 'Standard (3-4 weeks)' }
+    };
+    return labels[urgency]?.[language] || urgency;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -57,22 +78,32 @@ const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Create email content
+      // Create email content in Hebrew for consistency
       const emailContent = `
+פנייה חדשה מהאתר - LevelUp
+
+פרטי הלקוח:
 שם: ${formData.name}
 אימייל: ${formData.email}
-טלפון: ${formData.phone}
-סוג שירות: ${formData.serviceType}
-דחיפות: ${formData.urgency}
-הודעה: ${formData.message}
+טלפון: ${formData.phone || 'לא צוין'}
+
+פרטי הפרויקט:
+סוג שירות: ${getServiceTypeLabel(formData.serviceType)}
+דחיפות: ${getUrgencyLabel(formData.urgency)}
+
+הודעה:
+${formData.message}
+
+---
+נשלח מאתר LevelUp
       `;
 
-      // Send email using mailto (this will open the user's email client)
-      const subject = encodeURIComponent('פנייה חדשה מהאתר - ' + formData.name);
+      // Send email using mailto
+      const subject = encodeURIComponent(`פנייה חדשה מהאתר - ${formData.name}`);
       const body = encodeURIComponent(emailContent);
       const mailtoLink = `mailto:urielvaisfish@gmail.com?subject=${subject}&body=${body}`;
       
-      window.location.href = mailtoLink;
+      window.open(mailtoLink, '_blank');
       
       setSubmitSuccess(true);
       setFormData({

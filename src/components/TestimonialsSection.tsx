@@ -1,9 +1,10 @@
-import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const TestimonialsSection: React.FC = () => {
   const { t, language } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
@@ -32,8 +33,53 @@ const TestimonialsSection: React.FC = () => {
         ? 'שירות מעולה ותמיכה מלאה. האתר נראה מקצועי ומביא לקוחות חדשים כל הזמן.'
         : 'Excellent service and full support. The website looks professional and brings new customers all the time.',
       rating: 5
+    },
+    {
+      name: 'מ. ש.',
+      role: language === 'he' ? 'מנהל שיווק' : 'Marketing Manager',
+      company: 'Digital Agency',
+      content: language === 'he'
+        ? 'הצ\'אט AI שפיתח עבורנו חסך לנו שעות עבודה ושיפר את שירות הלקוחות באופן דרמטי.'
+        : 'The AI chat developed for us saved us hours of work and dramatically improved customer service.',
+      rating: 5
+    },
+    {
+      name: 'ל. ג.',
+      role: language === 'he' ? 'יועץ עסקי' : 'Business Consultant',
+      company: 'Consulting Firm',
+      content: language === 'he'
+        ? 'מערכת יצירת הלידים שבנה הגדילה את מספר הפניות שלנו פי 3. תוצאות מדהימות!'
+        : 'The lead generation system built increased our inquiries by 3x. Amazing results!',
+      rating: 5
+    },
+    {
+      name: 'ח. ר.',
+      role: language === 'he' ? 'מנהל מכירות' : 'Sales Manager',
+      company: 'B2B Company',
+      content: language === 'he'
+        ? 'האוטומציה שיצר עבורנו חסכה לנו זמן רב וגרמה לתהליכים להיות הרבה יותר יעילים.'
+        : 'The automation created for us saved us a lot of time and made processes much more efficient.',
+      rating: 5
     }
   ];
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Auto-advance testimonials every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="המלצות" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -45,37 +91,63 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-6 relative">
-              <div className="absolute top-4 right-4 text-blue-500">
-                <Quote size={24} />
+        <div className="max-w-4xl mx-auto relative">
+          {/* Main testimonial display */}
+          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 text-center min-h-[300px] flex flex-col justify-center">
+            <div className="flex items-center justify-center mb-6">
+              {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                <Star key={i} size={24} className="text-yellow-400 fill-current mx-1" />
+              ))}
+            </div>
+            
+            <blockquote className="text-xl md:text-2xl text-gray-700 mb-8 italic leading-relaxed">
+              "{testimonials[currentIndex].content}"
+            </blockquote>
+            
+            <div className="flex items-center justify-center">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+                {testimonials[currentIndex].name.charAt(0)}
               </div>
-              
-              <div className="flex items-center mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-current" />
-                ))}
-              </div>
-              
-              <p className="text-gray-700 mb-6 italic">
-                "{testimonial.content}"
-              </p>
-              
-              <div className="border-t pt-4">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div className="mr-4">
-                    <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                    <p className="text-xs text-gray-500">{testimonial.company}</p>
-                  </div>
-                </div>
+              <div className="text-right">
+                <h4 className="font-bold text-gray-800 text-lg">{testimonials[currentIndex].name}</h4>
+                <p className="text-gray-600">{testimonials[currentIndex].role}</p>
+                <p className="text-sm text-gray-500">{testimonials[currentIndex].company}</p>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Navigation buttons */}
+          <button
+            onClick={prevTestimonial}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
+            aria-label={t('testimonials.prev')}
+          >
+            <ChevronLeft size={24} className="text-gray-600" />
+          </button>
+          
+          <button
+            onClick={nextTestimonial}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
+            aria-label={t('testimonials.next')}
+          >
+            <ChevronRight size={24} className="text-gray-600" />
+          </button>
+
+          {/* Dots indicator */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-blue-500 w-8' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 text-center">

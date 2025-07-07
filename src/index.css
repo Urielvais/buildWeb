@@ -167,3 +167,17 @@ html, body {
   background-color: #f0f0f0 !important;
   color: black !important;
 }
+
+/* Testimonial carousel styles */
+.testimonial-carousel {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Smooth dot indicator animation */
+.dot-indicator {
+  transition: all 0.3s ease;
+}
+
+.dot-indicator.active {
+  transform: scale(1.2);
+}
