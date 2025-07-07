@@ -109,7 +109,7 @@ const translations = {
     
     // Hero Section
     'hero.title': 'Websites & Landing Pages',
-    'hero.highlight': 'That Convert',
+    'hero.highlight': 'That Take You Higher',
     'hero.subtitle': 'I specialize in building websites and landing pages that not only look great, but also deliver real business results.',
     'hero.viewProjects': 'View Projects',
     'hero.contactNow': 'Contact Me Now',
