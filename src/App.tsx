@@ -20,7 +20,7 @@ const AppContent: React.FC = () => {
     
     // Update page title
     document.title = language === 'he' 
-      ? 'פורטפוליו אתרים ודפי נחיתה' 
+      ? 'בונה אתרים ודפי נחיתה' 
       : 'Portfolio - Websites & Landing Pages';
   }, [language]);
 
