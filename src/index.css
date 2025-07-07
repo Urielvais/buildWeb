@@ -181,3 +181,39 @@ html, body {
 .dot-indicator.active {
   transform: scale(1.2);
 }
+
+/* Enhanced testimonial section styling */
+.testimonial-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.testimonial-card:hover {
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.1);
+}
+
+/* Logo styling improvements */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.logo-main {
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -0.025em;
+}
+
+.logo-slogan {
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-style: italic;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: -2px;
+}

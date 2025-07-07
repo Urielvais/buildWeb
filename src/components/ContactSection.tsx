@@ -79,8 +79,7 @@ const ContactSection: React.FC = () => {
     
     try {
       // Create email content in Hebrew for consistency
-      const emailContent = `
-פנייה חדשה מהאתר - LevelUp
+      const emailContent = `פנייה חדשה מהאתר - LevelUp
 
 פרטי הלקוח:
 שם: ${formData.name}
@@ -96,15 +95,18 @@ ${formData.message}
 
 ---
 נשלח מאתר LevelUp
-      `;
+תאריך: ${new Date().toLocaleDateString('he-IL')}
+שעה: ${new Date().toLocaleTimeString('he-IL')}`;
 
-      // Send email using mailto
+      // Send email using mailto - this will open the user's email client
       const subject = encodeURIComponent(`פנייה חדשה מהאתר - ${formData.name}`);
       const body = encodeURIComponent(emailContent);
       const mailtoLink = `mailto:urielvaisfish@gmail.com?subject=${subject}&body=${body}`;
       
-      window.open(mailtoLink, '_blank');
+      // Open email client
+      window.location.href = mailtoLink;
       
+      // Show success message
       setSubmitSuccess(true);
       setFormData({
         name: '',

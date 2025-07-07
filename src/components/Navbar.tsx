@@ -42,17 +42,19 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <a 
               href="/" 
-              className={`text-2xl font-bold transition-colors duration-300 ${
-                isScrolled ? 'text-blue-600' : 'text-blue-500'
-              }`}
+              className="flex flex-col items-start"
             >
-              {t('nav.portfolio')}
+              <span className={`text-2xl font-bold transition-colors duration-300 ${
+                isScrolled ? 'text-blue-600' : 'text-blue-500'
+              }`}>
+                {t('nav.portfolio')}
+              </span>
+              <span className={`text-sm font-medium italic transition-colors duration-300 ${
+                isScrolled ? 'text-gray-600' : 'text-gray-500'
+              } bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent`}>
+                {t('nav.slogan')}
+              </span>
             </a>
-            <span className={`text-sm ml-2 transition-colors duration-300 ${
-              isScrolled ? 'text-gray-600' : 'text-gray-500'
-            }`}>
-              {t('nav.slogan')}
-            </span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-1 rtl:space-x-reverse">

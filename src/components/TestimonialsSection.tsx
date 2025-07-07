@@ -8,57 +8,75 @@ const TestimonialsSection: React.FC = () => {
 
   const testimonials = [
     {
-      name: 'ד. מ.',
+      name: language === 'he' ? 'דני מרקוביץ' : 'Danny Markowitz',
       role: language === 'he' ? 'מנהל חנות אונליין' : 'Online Store Manager',
       company: 'Fashion Store',
       content: language === 'he' 
-        ? 'העבודה הייתה מקצועית ומדויקת. האתר עובד מעולה והמכירות עלו ב-40% מאז השקתו.'
-        : 'The work was professional and precise. The website works excellently and sales increased by 40% since launch.',
+        ? 'העבודה הייתה מקצועית ומדויקת. האתר עובד מעולה והמכירות עלו ב-40% מאז השקתו. השירות היה מעולה ותמיכה מלאה לאורך כל הדרך.'
+        : 'The work was professional and precise. The website works excellently and sales increased by 40% since launch. The service was excellent with full support throughout.',
       rating: 5
     },
     {
-      name: 'ר. כ.',
-      role: language === 'he' ? 'מנכ"ל סטארטאפ' : 'Startup CEO',
-      company: 'Tech Company',
+      name: language === 'he' ? 'רחל כהן' : 'Rachel Cohen',
+      role: language === 'he' ? 'מנכ"לית סטארטאפ' : 'Startup CEO',
+      company: 'Tech Innovation',
       content: language === 'he'
-        ? 'דף הנחיתה שבנה עבורנו הביא תוצאות מעולות. שיעור ההמרה עלה משמעותית.'
-        : 'The landing page built for us brought excellent results. Conversion rate increased significantly.',
+        ? 'דף הנחיתה שבנה עבורנו הביא תוצאות מעולות. שיעור ההמרה עלה משמעותית ואנחנו מאוד מרוצים מהתוצאה הסופית.'
+        : 'The landing page built for us brought excellent results. Conversion rate increased significantly and we are very satisfied with the final result.',
       rating: 5
     },
     {
-      name: 'א. ל.',
-      role: language === 'he' ? 'בעלת עסק' : 'Business Owner',
+      name: language === 'he' ? 'אבי לוי' : 'Avi Levy',
+      role: language === 'he' ? 'בעל עסק' : 'Business Owner',
       company: 'Local Business',
       content: language === 'he'
-        ? 'שירות מעולה ותמיכה מלאה. האתר נראה מקצועי ומביא לקוחות חדשים כל הזמן.'
-        : 'Excellent service and full support. The website looks professional and brings new customers all the time.',
+        ? 'שירות מעולה ותמיכה מלאה. האתר נראה מקצועי ומביא לקוחות חדשים כל הזמן. ההשקעה החזירה את עצמה תוך חודשיים.'
+        : 'Excellent service and full support. The website looks professional and brings new customers all the time. The investment paid for itself within two months.',
       rating: 5
     },
     {
-      name: 'מ. ש.',
-      role: language === 'he' ? 'מנהל שיווק' : 'Marketing Manager',
+      name: language === 'he' ? 'מיכל שמואלי' : 'Michal Shmueli',
+      role: language === 'he' ? 'מנהלת שיווק' : 'Marketing Manager',
       company: 'Digital Agency',
       content: language === 'he'
-        ? 'הצ\'אט AI שפיתח עבורנו חסך לנו שעות עבודה ושיפר את שירות הלקוחות באופן דרמטי.'
-        : 'The AI chat developed for us saved us hours of work and dramatically improved customer service.',
+        ? 'הצ\'אט AI שפיתח עבורנו חסך לנו שעות עבודה ושיפר את שירות הלקוחות באופן דרמטי. הלקוחות מקבלים מענה מיידי 24/7.'
+        : 'The AI chat developed for us saved us hours of work and dramatically improved customer service. Customers receive immediate response 24/7.',
       rating: 5
     },
     {
-      name: 'ל. ג.',
+      name: language === 'he' ? 'לירון גולדברג' : 'Liron Goldberg',
       role: language === 'he' ? 'יועץ עסקי' : 'Business Consultant',
       company: 'Consulting Firm',
       content: language === 'he'
-        ? 'מערכת יצירת הלידים שבנה הגדילה את מספר הפניות שלנו פי 3. תוצאות מדהימות!'
-        : 'The lead generation system built increased our inquiries by 3x. Amazing results!',
+        ? 'מערכת יצירת הלידים שבנה הגדילה את מספר הפניות שלנו פי 3. תוצאות מדהימות! הפתרון מותאם בדיוק לצרכים שלנו.'
+        : 'The lead generation system built increased our inquiries by 3x. Amazing results! The solution is perfectly tailored to our needs.',
       rating: 5
     },
     {
-      name: 'ח. ר.',
+      name: language === 'he' ? 'חיים רוזנברג' : 'Chaim Rosenberg',
       role: language === 'he' ? 'מנהל מכירות' : 'Sales Manager',
-      company: 'B2B Company',
+      company: 'B2B Solutions',
       content: language === 'he'
-        ? 'האוטומציה שיצר עבורנו חסכה לנו זמן רב וגרמה לתהליכים להיות הרבה יותר יעילים.'
-        : 'The automation created for us saved us a lot of time and made processes much more efficient.',
+        ? 'האוטומציה שיצר עבורנו חסכה לנו זמן רב וגרמה לתהליכים להיות הרבה יותר יעילים. עכשיו אנחנו יכולים להתמקד במה שחשוב באמת.'
+        : 'The automation created for us saved us a lot of time and made processes much more efficient. Now we can focus on what really matters.',
+      rating: 5
+    },
+    {
+      name: language === 'he' ? 'שרה אברהם' : 'Sarah Abraham',
+      role: language === 'he' ? 'מנהלת פרויקטים' : 'Project Manager',
+      company: 'Construction Company',
+      content: language === 'he'
+        ? 'האתר החדש שלנו מקצועי ומרשים. הלקוחות מתרשמים מהמראה והפונקציונליות. קיבלנו הרבה פניות חדשות מאז השקתו.'
+        : 'Our new website is professional and impressive. Clients are impressed by the look and functionality. We received many new inquiries since launch.',
+      rating: 5
+    },
+    {
+      name: language === 'he' ? 'יוסי פרידמן' : 'Yossi Friedman',
+      role: language === 'he' ? 'מנהל רשת חנויות' : 'Chain Store Manager',
+      company: 'Retail Chain',
+      content: language === 'he'
+        ? 'החנות האונליין שבנה עבורנו פועלת בצורה מושלמת. המערכת קלה לתפעול והלקוחות אוהבים את חוויית הקנייה החדשה.'
+        : 'The online store built for us works perfectly. The system is easy to operate and customers love the new shopping experience.',
       rating: 5
     }
   ];
@@ -75,9 +93,9 @@ const TestimonialsSection: React.FC = () => {
     );
   };
 
-  // Auto-advance testimonials every 5 seconds
+  // Auto-advance testimonials every 6 seconds
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000);
+    const interval = setInterval(nextTestimonial, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -91,27 +109,27 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-5xl mx-auto relative">
           {/* Main testimonial display */}
-          <div className="bg-white rounded-lg shadow-xl p-8 md:p-12 text-center min-h-[300px] flex flex-col justify-center">
-            <div className="flex items-center justify-center mb-6">
+          <div className="bg-white rounded-xl shadow-2xl p-8 md:p-12 text-center min-h-[350px] flex flex-col justify-center border border-gray-100">
+            <div className="flex items-center justify-center mb-8">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <Star key={i} size={24} className="text-yellow-400 fill-current mx-1" />
+                <Star key={i} size={28} className="text-yellow-400 fill-current mx-1" />
               ))}
             </div>
             
-            <blockquote className="text-xl md:text-2xl text-gray-700 mb-8 italic leading-relaxed">
+            <blockquote className="text-xl md:text-2xl text-gray-700 mb-10 italic leading-relaxed font-medium">
               "{testimonials[currentIndex].content}"
             </blockquote>
             
-            <div className="flex items-center justify-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+            <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
                 {testimonials[currentIndex].name.charAt(0)}
               </div>
               <div className="text-right">
-                <h4 className="font-bold text-gray-800 text-lg">{testimonials[currentIndex].name}</h4>
-                <p className="text-gray-600">{testimonials[currentIndex].role}</p>
-                <p className="text-sm text-gray-500">{testimonials[currentIndex].company}</p>
+                <h4 className="font-bold text-gray-800 text-xl mb-1">{testimonials[currentIndex].name}</h4>
+                <p className="text-gray-600 text-lg">{testimonials[currentIndex].role}</p>
+                <p className="text-sm text-blue-600 font-medium">{testimonials[currentIndex].company}</p>
               </div>
             </div>
           </div>
@@ -119,39 +137,46 @@ const TestimonialsSection: React.FC = () => {
           {/* Navigation buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-blue-50 border border-gray-200"
             aria-label={t('testimonials.prev')}
           >
-            <ChevronLeft size={24} className="text-gray-600" />
+            <ChevronLeft size={28} className="text-gray-600" />
           </button>
           
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-blue-50"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-blue-50 border border-gray-200"
             aria-label={t('testimonials.next')}
           >
-            <ChevronRight size={24} className="text-gray-600" />
+            <ChevronRight size={28} className="text-gray-600" />
           </button>
 
           {/* Dots indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-10 space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-4 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'bg-blue-500 w-8' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-blue-500 w-12 shadow-lg' 
+                    : 'bg-gray-300 hover:bg-gray-400 w-4'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
+
+          {/* Testimonial counter */}
+          <div className="text-center mt-6">
+            <span className="text-gray-500 text-sm">
+              {currentIndex + 1} / {testimonials.length}
+            </span>
+          </div>
         </div>
 
         <div className="mt-16 text-center">
-          <a href="#contact" className="btn-primary">
+          <a href="#contact" className="btn-primary text-lg px-8 py-4">
             {language === 'he' ? 'בואו נתחיל לעבוד יחד' : 'Let\'s Start Working Together'}
           </a>
         </div>
