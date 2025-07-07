@@ -48,6 +48,11 @@ const Navbar: React.FC = () => {
             >
               {t('nav.portfolio')}
             </a>
+            <span className={`text-sm ml-2 transition-colors duration-300 ${
+              isScrolled ? 'text-gray-600' : 'text-gray-500'
+            }`}>
+              {t('nav.slogan')}
+            </span>
           </div>
           
           <nav className="hidden md:flex items-center space-x-1 rtl:space-x-reverse">
