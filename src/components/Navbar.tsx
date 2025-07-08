@@ -47,7 +47,12 @@ const Navbar: React.FC = () => {
               <img 
                 src="/image.png" 
                 alt="LevelUp Logo" 
-                className="w-10 h-10"
+                className="w-10 h-10 rounded-full bg-white p-1 shadow-sm"
+                style={{
+                  filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))',
+                  backgroundColor: 'white',
+                  border: '1px solid rgba(0, 0, 0, 0.1)'
+                }}
               />
               <div className="logo-container">
                 <span className={`logo-main transition-colors duration-300 ${
