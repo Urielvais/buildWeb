@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <img 
-                src="/favicon.svg" 
+                src="logo.svg" 
                 alt="LevelUp Logo" 
                 className="w-10 h-10"
               />
