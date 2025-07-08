@@ -1,22 +1,85 @@
-# Deployment to GitHub Pages
+# LevelUp Portfolio Website
 
-This project is configured to deploy to GitHub Pages using the `gh-pages` branch.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
 
-## Steps
+## Features
 
-1. Make sure the `base` option in `vite.config.ts` is set to your repo name (already set to `/buildWeb/`).
-2. Run the following command to deploy:
+- 🌐 Bilingual support (Hebrew/English)
+- ♿ Accessibility features
+- 📱 Fully responsive design
+- 🎨 Modern UI with smooth animations
+- 📧 Contact form with email integration
+- 🚀 Optimized for performance
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Building for Production
+
+To build the project for production:
 
 ```bash
-npm run deploy
+npm run build
 ```
 
-This will build the project and publish the `dist` folder to the `gh-pages` branch using the `gh-pages` package.
+The built files will be in the `dist` directory.
 
-## Scripts
-- `npm run predeploy`: Builds the project.
-- `npm run deploy`: Builds and deploys to GitHub Pages.
+## Deployment
 
-## Notes
-- Ensure your repository is public and the `gh-pages` branch is enabled in your GitHub Pages settings.
-- The site will be available at `https://<username>.github.io/buildWeb/` after deployment. 
+This project can be deployed to any static hosting service like:
+
+- Netlify
+- Vercel
+- GitHub Pages
+- Firebase Hosting
+- AWS S3
+
+Simply upload the contents of the `dist` directory after building.
+
+## Technologies Used
+
+- React 18
+- TypeScript
+- Tailwind CSS
+- Vite
+- Lucide React (for icons)
+- Formspree (for contact form)
+
+## Project Structure
+
+```
+src/
+├── components/          # React components
+├── contexts/           # React contexts (Language, Accessibility)
+├── data/              # Static data (projects, etc.)
+├── types/             # TypeScript type definitions
+├── index.css          # Global styles
+└── main.tsx           # Application entry point
+```
+
+## Contact Form
+
+The contact form uses Formspree for email handling. Make sure to update the form endpoint in `ContactSection.tsx` if needed.
+
+## License
+
+This project is private and proprietary.
