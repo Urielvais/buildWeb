@@ -5,6 +5,8 @@ import { useLanguage } from '../contexts/LanguageContext';
 const TestimonialsSection: React.FC = () => {
   const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const testimonials = [
     {
@@ -82,22 +84,37 @@ const TestimonialsSection: React.FC = () => {
   ];
 
   const nextTestimonial = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prevIndex) => 
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
+    setTimeout(() => setIsTransitioning(false), 300);
   };
 
   const prevTestimonial = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
+  const goToTestimonial = (index: number) => {
+    if (isTransitioning || index === currentIndex) return;
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+    setTimeout(() => setIsTransitioning(false), 300);
   };
 
   // Auto-advance testimonials every 6 seconds
   useEffect(() => {
-    const interval = setInterval(nextTestimonial, 6000);
-    return () => clearInterval(interval);
-  }, []);
+    if (!isPaused) {
+      const interval = setInterval(nextTestimonial, 6000);
+      return () => clearInterval(interval);
+    }
+  }, [isPaused]);
 
   return (
     <section id="המלצות" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
@@ -111,25 +128,29 @@ const TestimonialsSection: React.FC = () => {
 
         <div className="max-w-5xl mx-auto relative">
           {/* Main testimonial display */}
-          <div className="testimonial-card rounded-xl shadow-2xl p-8 md:p-12 text-center min-h-[350px] flex flex-col justify-center">
+          <div 
+            className="testimonial-card rounded-xl shadow-2xl p-6 md:p-12 text-center min-h-[400px] md:min-h-[350px] flex flex-col justify-center"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <div className="flex items-center justify-center mb-8">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                 <Star key={i} size={28} className="text-yellow-400 fill-current mx-1" />
               ))}
             </div>
             
-            <blockquote className="text-xl md:text-2xl text-gray-700 mb-10 italic leading-relaxed font-medium">
+            <blockquote className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 md:mb-10 italic leading-relaxed font-medium px-2">
               "{testimonials[currentIndex].content}"
             </blockquote>
             
-            <div className="flex items-center justify-center space-x-4 rtl:space-x-reverse">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-lg">
                 {testimonials[currentIndex].name.charAt(0)}
               </div>
-              <div className="text-right">
-                <h4 className="font-bold text-gray-800 text-xl mb-1">{testimonials[currentIndex].name}</h4>
-                <p className="text-gray-600 text-lg">{testimonials[currentIndex].role}</p>
-                <p className="text-sm text-blue-600 font-medium">{testimonials[currentIndex].company}</p>
+              <div className="text-center sm:text-right">
+                <h4 className="font-bold text-gray-800 text-lg md:text-xl mb-1">{testimonials[currentIndex].name}</h4>
+                <p className="text-gray-600 text-base md:text-lg">{testimonials[currentIndex].role}</p>
+                <p className="text-sm md:text-base text-blue-600 font-medium">{testimonials[currentIndex].company}</p>
               </div>
             </div>
           </div>
@@ -137,46 +158,50 @@ const TestimonialsSection: React.FC = () => {
           {/* Navigation buttons */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-blue-50 border border-gray-200"
+            className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 md:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-blue-50 border border-gray-200 z-10"
             aria-label={t('testimonials.prev')}
           >
-            <ChevronLeft size={28} className="text-gray-600" />
+            <ChevronLeft size={20} className="md:w-7 md:h-7 text-gray-600" />
           </button>
           
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-blue-50 border border-gray-200"
+            className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 md:p-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-blue-50 border border-gray-200 z-10"
             aria-label={t('testimonials.next')}
           >
-            <ChevronRight size={28} className="text-gray-600" />
+            <ChevronRight size={20} className="md:w-7 md:h-7 text-gray-600" />
           </button>
 
           {/* Dots indicator */}
-          <div className="flex justify-center mt-10 space-x-3">
+          <div className="flex justify-center items-center mt-8 md:mt-10 px-4">
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-4 rounded-full transition-all duration-300 dot-indicator ${
+                onClick={() => goToTestimonial(index)}
+                disabled={isTransitioning}
+                className={`h-3 md:h-4 rounded-full transition-all duration-500 dot-indicator transform hover:scale-110 mx-1 md:mx-1.5 ${
                   index === currentIndex 
-                    ? 'bg-blue-500 w-12 shadow-lg active' 
-                    : 'bg-gray-300 hover:bg-gray-400 w-4'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 w-8 md:w-12 shadow-lg active scale-110 z-10' 
+                    : 'bg-gray-300 hover:bg-gray-400 w-3 md:w-4 hover:bg-blue-300 z-0'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
+                style={{
+                  pointerEvents: isTransitioning ? 'none' : 'auto'
+                }}
               />
             ))}
           </div>
 
           {/* Testimonial counter */}
-          <div className="text-center mt-6">
+          <div className="text-center mt-4 md:mt-6">
             <span className="text-gray-500 text-sm">
               {currentIndex + 1} / {testimonials.length}
             </span>
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <a href="#contact" className="btn-primary text-lg px-8 py-4">
+        <div className="mt-12 md:mt-16 text-center px-4">
+          <a href="#contact" className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 inline-block">
             {language === 'he' ? 'בואו נתחיל לעבוד יחד' : 'Let\'s Start Working Together'}
           </a>
         </div>

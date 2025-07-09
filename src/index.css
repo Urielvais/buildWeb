@@ -175,11 +175,43 @@ html, body {
 
 /* Smooth dot indicator animation */
 .dot-indicator {
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
 .dot-indicator.active {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dot-indicator:not(.active):hover {
+  transform: scale(1.05);
+  background-color: #9ca3af !important;
+}
+
+.dot-indicator.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.dot-indicator:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 /* Enhanced testimonial section styling */
@@ -191,6 +223,108 @@ html, body {
 .testimonial-card:hover {
   border-color: rgba(59, 130, 246, 0.2);
   box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.1);
+}
+
+/* Mobile testimonial improvements */
+@media (max-width: 768px) {
+  .testimonial-card {
+    margin: 0 0.5rem;
+    padding: 2rem 1.5rem;
+    min-height: 450px;
+  }
+  
+  .testimonial-card blockquote {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .dot-indicator {
+    min-width: 10px;
+    min-height: 10px;
+    margin: 0 4px;
+  }
+  
+  .dot-indicator.active {
+    min-width: 28px;
+  }
+  
+  /* Better mobile navigation buttons */
+  .testimonial-card + button {
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    margin: 0 0.25rem;
+    padding: 1.5rem 1rem;
+    min-height: 400px;
+  }
+  
+  .testimonial-card blockquote {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .dot-indicator {
+    min-width: 8px;
+    min-height: 8px;
+    margin: 0 3px;
+  }
+  
+  .dot-indicator.active {
+    min-width: 24px;
+  }
+}
+
+/* Smooth transitions for testimonial changes */
+.testimonial-card * {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Better button spacing for mobile */
+@media (max-width: 640px) {
+  .btn-primary, .btn-outline {
+    width: auto;
+    min-width: 200px;
+    text-align: center;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Improved navbar spacing */
+.navbar-item {
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-item {
+    margin: 0 0.75rem;
+  }
+}
+
+/* Enhanced footer styling */
+.footer-hours-card {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  border: 1px solid #4b5563;
+  transition: all 0.3s ease;
+}
+
+.footer-hours-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Better mobile footer */
+@media (max-width: 768px) {
+  .footer-hours-card {
+    margin-top: 1rem;
+  }
 }
 
 /* Logo styling improvements */

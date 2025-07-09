@@ -67,15 +67,17 @@ const Navbar: React.FC = () => {
               <a
                 key={index}
                 href={item.href}
-                className={`mx-4 py-2 px-3 text-sm font-medium transition-all duration-300 hover:text-blue-500 hover:bg-blue-50 rounded-lg ${
+                className={`mx-2 py-2 px-3 text-sm font-medium transition-all duration-300 hover:text-blue-500 hover:bg-blue-50 rounded-lg ${
                   isScrolled ? 'text-gray-700' : 'text-gray-600'
                 }`}
               >
                 {t(item.key)}
               </a>
             ))}
-            <LanguageToggle />
-            <a href="#contact" className="btn-primary mr-4">
+            <div className="mx-2">
+              <LanguageToggle />
+            </div>
+            <a href="#contact" className="btn-primary mx-2">
               {t('nav.quote')}
             </a>
           </nav>

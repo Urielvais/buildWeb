@@ -71,21 +71,23 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4">{t('footer.hours')}</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li className="flex justify-between">
-                <span>{t('footer.hours.weekdays')}</span>
-                <span>9:00 - 18:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>{t('footer.hours.friday')}</span>
-                <span>9:00 - 13:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>{t('footer.hours.saturday')}</span>
-                <span>{t('footer.hours.closed')}</span>
-              </li>
-            </ul>
+            <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
+              <h3 className="text-xl font-bold mb-4 text-blue-400">{t('footer.hours')}</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center py-2 border-b border-gray-700">
+                  <span className="text-gray-300 font-medium">{t('footer.hours.weekdays')}</span>
+                  <span className="text-green-400 font-semibold">9:00 - 18:00</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-700">
+                  <span className="text-gray-300 font-medium">{t('footer.hours.friday')}</span>
+                  <span className="text-yellow-400 font-semibold">9:00 - 13:00</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-gray-300 font-medium">{t('footer.hours.saturday')}</span>
+                  <span className="text-red-400 font-semibold">{t('footer.hours.closed')}</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
